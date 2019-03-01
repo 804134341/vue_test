@@ -1,30 +1,37 @@
-# vue_test
+ # wx
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## Project setup
+```
+yarn install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```
+yarn runya serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+* 图片组件
+```javascript
+/**
+ *  图片组件
+ *  @param {String | required}  imgSrc  图片链接
+ *  @param {String}             cls     组件根元素class
+ *  @param {String}             alt     图片解释性文字
+ */
+<mt-img 
+    imgSrc="imgUrl" 
+    alt="swiper" 
+    cls="img__class"
+></mt-img>
+```
+

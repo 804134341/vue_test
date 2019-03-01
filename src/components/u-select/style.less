@@ -1,0 +1,30 @@
+@picker: #EF7635;
+.u-area-picker.mint-popup-bottom{
+    width: 100%;
+    .picker-item{
+        .font-size(13);
+        color: #444;
+        &.picker-selected{
+            color: @picker;
+        }
+    }
+    .picker-toolbar{
+        .height(50);
+    }
+}
+.u-area-picker-toolbar-title{
+    .height(50);
+    .flex_v-center;
+    .flex_dir-row;
+    .flex_h-between;
+    .border_line;
+    .font-size(16);
+    color: #222;
+    font-weight: 400;
+    .padding2(0,20);
+    box-sizing: border-box;
+    z-index: 2000;
+}
+.u-area-picker-btn-sure{
+    color: @picker;
+}

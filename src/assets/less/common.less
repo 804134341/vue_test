@@ -1,0 +1,131 @@
+//  该项目下全局UI样式区
+#app {
+    height: 100%;
+    font-size: .28rem;
+    overflow: hidden;
+    article {
+        height: 100%;
+        background-color: @bodyColor;
+    }
+    .flex_dir-col;
+}
+
+.app_container {
+    .flex_dir-col;
+    overflow: hidden;
+    height: 100%;
+}
+
+.app_content {
+    .flex_1;
+    overflow-y: scroll;
+}
+
+.app_header {
+    .font-psr;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    .line-height(40);
+    .font-size(17);
+    font-weight: 400;
+    //box-shadow: 1px 1px 10px 2px #e8e8e8;
+    color: #222;
+    .x_padding_top;
+    //.app_padding_top;
+    .header_title {
+        .height(40);
+        .line-height(40);
+        text-align: center;
+        .flex_1;
+    }
+    .header_back {
+        position: absolute;
+        .left(13);
+        bottom: 0;
+        .height(40);
+        .width(30);
+        .line-height(40);
+        text-align: left;
+        .icon-zuo1 {
+            &::before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                background-image: url("../img/back@2x.png");
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 35%;
+            }
+        }
+    }
+    .header_right {
+        position: absolute;
+        .right(16);
+        bottom: 0;
+        .height(40);
+        .width(30);
+        .line-height(40);
+        text-align: right;
+    }
+}
+
+.app_footer {
+    .height(50);
+    box-sizing: padding-box;
+    .x_padding_bottom;
+}
+
+.app_nav_container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .flex_dir-col;
+}
+
+.app_nav_content {
+    .flex_1;
+}
+
+.app_nav_footer {
+    .border_line--top;
+    .flex_dir-row;
+    .x_padding_bottom;
+    .min-height(49);
+    .app_nav_item {
+        .height(49);
+        .flex_1;
+        border: 1px solid @comColor;
+    }
+}
+
+// 单选框按钮样式
+.input_radio_item {
+    .flex_dir-row;
+    .flex_v-center;
+    .input_radio_icon {
+        display: inline-block;
+        .width(12);
+        .height(12);
+        border-radius: 50%;
+        .define(1);
+        border: @a solid @comColor;
+        position: relative;
+        .margin-right(4);
+    }
+    .input_radio_icon.checked {
+        &:before {
+            content: '';
+            height: 70%;
+            width: 70%;
+            border-radius: 50%;
+            background-color: @comColor;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

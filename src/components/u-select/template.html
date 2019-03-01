@@ -1,0 +1,21 @@
+<mt-popup v-model="subVisible" class="area-class u-area-picker" position="bottom" v-if="visible">
+    <mt-picker
+            :slots="slots"
+            @change="onValuesChange"
+            :showToolbar="true"
+    >
+        <div class="u-area-picker-toolbar-title">                    
+            <div class="u-area-picker-btn-cancel" @click="cancel">取消</div>                                       
+            <div class="u-area-picker-btn-sure" @click="confirm">确定</div>                    
+        </div>
+    </mt-picker>
+</mt-popup>
+<!--&lt;!&ndash;<mt-header fixed title="四级联动-demo-1"></mt-header>&ndash;&gt;-->
+<!--<div class="page-content">-->
+<!--<mt-cell title="省市区:" :value="areaString" is-link @click.native="handlerArea"></mt-cell>-->
+<!--&lt;!&ndash;<mt-cell title="街道:" :value="streetString" is-link @click.native="handlerStreet"></mt-cell>&ndash;&gt;-->
+<!---->
+<!--&lt;!&ndash;<mt-popup v-model="streetVisible" class="area-class" position="bottom">&ndash;&gt;-->
+<!--&lt;!&ndash;<mt-picker :slots="slotstree" @change="onStreeChange"></mt-picker>&ndash;&gt;-->
+<!--&lt;!&ndash;</mt-popup>&ndash;&gt;-->
+<!--</div>-->
