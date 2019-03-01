@@ -1,0 +1,551 @@
+/**************************less变量定义区*************************************/
+@rem: 50;
+@bodyColor: #fbfbfb;
+@comColor: #F99649; // 全局背景颜色
+@imgUrl: '/src/assets/img/'; // 默认背景图片位置
+@a: 0;
+@b: 0;
+@c: 0;
+@d: 0;
+@btnPrimary: #F99649;
+
+@btnDefault: #ddd;
+@btnDefaultColor: #444;
+
+@btnSuccessColor: #F99649;
+@btnBorderColor: #F99649;
+
+.define(@m:0,@n:0,@p:0,@q:0) {
+    @a: unit(@m/@rem, rem);
+    @b: unit(@n/@rem, rem);
+    @c: unit(@p/@rem, rem);
+    @d: unit(@q/@rem, rem);
+}
+
+/**************************基本样式重置区*************************************/
+html,
+body {
+    background-color: red;
+    position: relative;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    color: #333333;
+    height: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+ul, li, div, span, p, label, button, a, input, img, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+// 去除按钮点击的默认样式
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    appearance: none;
+    -webkit-appearance: none;
+    //background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+// 光标颜色修改
+input, textarea {
+    caret-color: @comColor;
+    &::placeholder, &::-webkit-input-placeholder {
+        color: #999;
+    }
+}
+
+textarea[disabled], textarea:disabled {
+    background-color: #fff;
+}
+
+.clearfix {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+ul {
+    .clearfix;
+}
+
+/**************************通用样式定义区*************************************/
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-psr {
+    font-family: PingFangSC-Regular;
+}
+
+input:disabled, input[disabled] {
+    opacity: 1;
+}
+
+button:disabled, button[disabled] {
+    //background-color: #ddd;
+    opacity: .6;
+}
+
+.pull_left {
+    float: left;
+}
+
+.pull_right {
+    float: right;
+}
+
+.text_overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text_nowrap {
+    text-align: justify;
+    white-space: nowrap;
+}
+
+// 强制文字换行
+.text_wrap {
+    text-align: justify;
+    word-break: break-all;
+    white-space: normal;
+}
+
+// 强制文字两行换行
+.text_wrap_two {
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+// 底部半像素线
+.border_line {
+    position: relative;
+    width: 100%;
+    &:after {
+        position: absolute;
+        display: inline-block;
+        .height(1);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #E6E6E6;
+        .scaleY(.5);
+        content: '';
+    }
+}
+
+// 顶部半像素线
+.border_line--top {
+    position: relative;
+    width: 100%;
+    &:before {
+        position: absolute;
+        display: inline-block;
+        .height(1);
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #E6E6E6;
+        .scaleY(.5);
+        content: '';
+    }
+}
+
+/**************************变量函数区*************************************/
+.font-size(@px) {
+    font-size: unit(@px/@rem, rem);
+}
+
+.width(@px) {
+    width: unit(@px/@rem, rem);
+}
+
+.min-width(@px) {
+    min-width: unit(@px/@rem, rem);
+}
+
+.max-width(@px) {
+    max-width: unit(@px/@rem, rem);
+}
+
+.height(@px) {
+    height: unit(@px/@rem, rem);
+}
+
+.line-height(@px) {
+    line-height: unit(@px/@rem, rem);
+}
+
+.min-height(@px) {
+    min-height: unit(@px/@rem, rem);
+}
+
+.max-height(@px) {
+    max-height: unit(@px/@rem, rem);
+}
+
+.border-radius(@px) {
+    border-radius: unit(@px/@rem, rem);;
+}
+
+.padding(@com) {
+    padding: unit(@com/@rem, rem);
+}
+
+.padding2(@tb:0,@lf:0) {
+    padding: unit(@tb/@rem, rem) unit(@lf/@rem, rem);
+}
+
+.padding3(@top:0,@lf:0,@bottom:0) {
+    padding: unit(@top/@rem, rem) unit(@lf/@rem, rem) unit(@bottom/@rem, rem);
+}
+
+.padding4(@top:0,@right:0,@bottom:0,@left:0) {
+    padding: unit(@top/@rem, rem) unit(@right/@rem, rem) unit(@bottom/@rem, rem) unit(@left/@rem, rem);
+}
+
+.padding-left(@px) {
+    padding-left: unit(@px/@rem, rem);
+}
+
+.padding-right(@px) {
+    padding-right: unit(@px/@rem, rem);
+}
+
+.padding-top(@px) {
+    padding-top: unit(@px/@rem, rem);
+}
+
+.padding-bottom(@px) {
+    padding-bottom: unit(@px/@rem, rem);
+}
+
+.margin(@com) {
+    margin: unit(@com/@rem, rem);
+}
+
+.margin2(@tb:0,@lf:0) {
+    margin: unit(@tb/@rem, rem) unit(@lf/@rem, rem);
+}
+
+.margin3(@top:0,@lf:0,@bottom:0) {
+    margin: unit(@top/@rem, rem) unit(@lf/@rem, rem) unit(@bottom/@rem, rem);
+}
+
+.margin4(@top:0,@right:0,@bottom:0,@left:0) {
+    margin: unit(@top/@rem, rem) unit(@right/@rem, rem) unit(@bottom/@rem, rem) unit(@left/@rem, rem);
+}
+
+.margin-left(@px) {
+    margin-left: unit(@px/@rem, rem);
+}
+
+.margin-right(@px) {
+    margin-right: unit(@px/@rem, rem);
+}
+
+.margin-top(@px) {
+    margin-top: unit(@px/@rem, rem);
+}
+
+.margin-bottom(@px) {
+    margin-bottom: unit(@px/@rem, rem);
+}
+
+.box-shadow(@x:0;@y:0;@m:0;@n:0;@color:#ddd) {
+    box-shadow: unit(@x/@rem, rem) unit(@y/@rem, rem) unit(@m/@rem, rem) unit(@n/@rem, rem) @color;
+}
+
+.border(@px:1px;@color:#ddd) {
+    border: unit(@px/@rem, rem) solid @color;
+}
+
+.top(@px) {
+    top: unit(@px/@rem, rem);
+}
+
+.left(@px) {
+    left: unit(@px/@rem, rem);
+}
+
+.right(@px) {
+    right: unit(@px/@rem, rem);
+}
+
+.bottom(@px) {
+    bottom: unit(@px/@rem, rem);
+}
+
+.scale(@x,@y) {
+    transform: scale(@x, @y);
+    -webkit-transform: scale(@x, @y);
+    -ms-transform: scale(@x, @y);
+    -o-transform: scale(@x, @y);
+    -moz-transform: scale(@x, @y);
+}
+
+.scaleX(@x) {
+    transform: scaleX(@x);
+    -webkit-transform: scaleX(@x);
+    -ms-transform: scaleX(@x);
+    -o-transform: scaleX(@x);
+    -moz-transform: scaleX(@x);
+}
+
+.scaleY(@y) {
+    transform: scaleY(@y);
+    -webkit-transform: scaleY(@y);
+    -ms-transform: scaleY(@y);
+    -o-transform: scaleY(@y);
+    -moz-transform: scaleY(@y);
+}
+
+.transition(@duration:300ms,@property:all,@func:ease) {
+    transition: @property @duration @func;
+    -webkit-transition: @property @duration @func;
+    -ms-transition: @property @duration @func;
+    -o-transition: @property @duration @func;
+    -moz-transition: @property @duration @func;
+}
+
+.translate(@x:50%,@y:50%) {
+    transform: translate(@x, @y);
+    -webkit-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+    -moz-transform: translate(@x, @y);
+}
+
+// TODO 推荐使用这个图片函数  要求在使用该函数的文件头部添加@imgUrl: './img/',并在当前文件新建文件夹img即可;
+.imgRoot(@imgName,@type: png) {
+    background-image: url("@{imgUrl}@{imgName}@2x.@{type}");
+    background-image: image-set(url("@{imgUrl}@{imgName}@2x.@{type}") 2x, url("@{imgUrl}@{imgName}@3x.@{type}") 3x);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+// TODO 不存在多倍图图片的情况下使用
+.r_icon(@imgbg) {
+    background: url('@{imgUrl}@{imgbg}') center center no-repeat;
+    background-size: contain;
+}
+
+.rs_icon(@imgbg,@x,@y,@w,@h) {
+    background-image: url('@{imgUrl}@{imgbg}');
+    background-repeat: no-repeat;
+    .define(@x, @y, @w, @h);
+    background-position: @a @b;
+    background-size: @c @d;
+}
+
+// 不分类文件夹img下的@2x @3x
+.rsx_icon(@imgName,@type: png) {
+    background-image: url("@{imgUrl}@2x/@{imgName}@2x.@{type}");
+    background-image: image-set(url("@{imgUrl}@2x/@{imgName}@2x.@{type}") 2x, url("@{imgUrl}@3x/@{imgName}@3x.@{type}") 3x);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+// 分类文件夹图片
+.img_icon(@imgFile,@imgName,@type: png) {
+    background-image: url("@{imgUrl}@{imgFile}/@{imgName}@2x.@{type}");
+    background-image: image-set(url("@{imgUrl}@{imgFile}/@{imgName}@2x.@{type}") 2x, url("@{imgUrl}@{imgFile}/@{imgName}@3x.@{type}") 3x);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+/**************************flex 布局区*************************************/
+// flex布局
+/* flex布局 */
+.flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.flex_(@num:1) {
+    flex: @num;
+    -webkit-flex: @num;
+}
+
+.flex_1 {
+    .flex_(1);
+}
+
+.flex_1-half {
+    .flex_(1.5);
+}
+
+.flex_2 {
+    .flex_(2);
+}
+
+.flex_2-half {
+    .flex_(2.5);
+}
+
+.flex_3 {
+    .flex_(3);
+}
+
+.flex_3-half {
+    .flex_(3.5);
+}
+
+.flex_4 {
+    .flex_(4);
+}
+
+.flex_4-half {
+    .flex_(4.5);
+}
+
+.flex_5 {
+    .flex_(5);
+}
+
+.flex_5-half {
+    .flex_(5.5);
+}
+
+.flex_6 {
+    .flex_(6);
+}
+
+.flex_6-half {
+    .flex_(6.5);
+}
+
+.flex_7 {
+    .flex_(7);
+}
+
+.flex_8 {
+    .flex_(8);
+}
+
+// 里面元素水平居中
+.flex_h-center {
+    &:extend(.flex);
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+// 里面元素水平向左
+.flex_h-start {
+    &:extend(.flex);
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+}
+
+// 里面元素左右对齐
+.flex_h-between {
+    &:extend(.flex);
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+// 里面元素水平向右
+.flex_h-end {
+    &:extend(.flex);
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+}
+
+// 里面元素整体居中
+.flex_v-center {
+    &:extend(.flex);
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+// 里面元素整体向上
+.flex_v-top {
+    &:extend(.flex);
+    align-items: flex-start;
+    -webkit-box-align: flex-start;
+}
+
+// 里面元素整体向下
+.flex_v-bottom {
+    &:extend(.flex);
+    align-items: flex-end;
+    -webkit-box-align: flex-end;
+}
+
+// 里面元素行布局
+.flex_dir-row {
+    &:extend(.flex);
+    flex-direction: row;
+}
+
+// 里面元素列布局
+.flex_dir-col {
+    &:extend(.flex);
+    flex-direction: column;
+}
+
+// 里面的元素垂直居中
+.flex_center {
+    &:extend(.flex_v-center,.flex_h-center);
+}
+
+// flex 两边固定中间自适应布局
+.flex_auto {
+    //flex-grow: 1;
+    .flex_1;
+}
+
+/**************************适配区*************************************/
+// 全面屏的适配
+.x_padding_top {
+    padding-top: env(safe-area-inset-top);
+    padding-top: constant(safe-area-inset-top);
+}
+
+.x_padding_bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: constant(safe-area-inset-bottom);
+}
+
+// app端顶部样式
+.app_padding_top {
+    .padding-top(24);
+}
