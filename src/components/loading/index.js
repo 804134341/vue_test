@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import load from './loading1';
+import load from './loading';
 
 const LoadVue = Vue.extend(load);
 
